@@ -202,7 +202,7 @@ export default class CommsRemoteInstance extends InstanceBase<CommsTypes> {
 	}
 
 	#applyConfig(changes: Partial<Config>): void {
-		this.config = { ...this.config, ...changes }
+		this.config = { ...this.config, ...changes } as Config
 		this.saveConfig(this.config)
 		this.#stop()
 		this.#start()
@@ -393,7 +393,6 @@ export default class CommsRemoteInstance extends InstanceBase<CommsTypes> {
 			rotary: {
 				type: 'simple',
 				name: 'Rotary: turn = volume, press = mute',
-				options: { rotaryActions: true },
 				style: { text: `$(${id}:state)\n$(${id}:volume)%`, size: 'auto', color: WHITE, bgcolor: BLACK },
 				steps: [
 					{
